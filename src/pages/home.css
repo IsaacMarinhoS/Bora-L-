@@ -105,6 +105,9 @@ p {
     animation: rgbCustom 2s infinite linear;
 }
 
+.card-h3 {
+    color: aliceblue;
+}
 
 
 .cards-container {

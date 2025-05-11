@@ -20,15 +20,15 @@ const Home = () => {
 
             <div className="cards-container">
                 <div className="card">
-                    <h3>Festas Exclusivas</h3>
+                    <h3 className='card-h3'>Festas Exclusivas</h3>
                     <p>Entre em eventos privados e descubra experiências únicas que poucos conhecem.</p>
                 </div>
                 <div className="card">
-                    <h3>Baladas</h3>
+                    <h3 className='card-h3'>Baladas</h3>
                     <p>Conheça as baladas mais animadas da sua cidade com os melhores DJs e ambientes.</p>
                 </div>
                 <div className="card">
-                    <h3>Shows</h3>
+                    <h3 className='card-h3' >Shows</h3>
                     <p>Fique por dentro dos grandes shows e apresentações ao vivo que estão por vir.</p>
                 </div>
             </div>
