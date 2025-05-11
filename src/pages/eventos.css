@@ -1,0 +1,508 @@
+html {
+  background-color: #ffffff;
+}
+
+
+
+/* Estilos gerais da página */
+.eventos-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER (Logo, Botões e Barra de Pesquisa) */
+.header {
+  background-color: #1F2937;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.topo-header {
+  display: flex;
+  justify-content: space-between;
+  /* Ajuste para garantir que os itens fiquem nas extremidades */
+  align-items: center;
+  width: 90%;
+  /* Certifique-se de que a largura ocupe 100% */
+}
+
+.logo {
+  font-size: 2em;
+  color: #1F2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 70px;
+  border-radius: 15px;
+  background: #f9f9f9;
+  /* Gradiente suave */
+}
+
+
+
+/* Setas do Banner */
+.seta-esquerda,
+.seta-direita {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #1F2937;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.seta-esquerda {
+  left: 10px;
+}
+
+.seta-direita {
+  right: 10px;
+}
+
+/* BARRA DE PESQUISA */
+.barra-pesquisa-container {
+  position: relative;
+  width: 400px;
+  /* Defina a largura da barra de pesquisa */
+  padding-bottom: 19px;
+}
+
+.barra-pesquisa {
+  width: 100%;
+  /* Para ocupar toda a largura disponível da barra */
+  padding: 12px;
+  border-radius: 11px;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  padding-right: 10px;
+  /* Deixa espaço para a lupa */
+}
+
+.barra-pesquisa-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-80%);
+  background: transparent;
+  border: none;
+  font-size: 1.3em;
+  color: #888;
+  cursor: pointer;
+}
+
+
+.barra-pesquisa:focus {
+  border-color: #007bff;
+  background-color: #fff;
+}
+
+.barra-pesquisa::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* LISTA DE EVENTOS */
+.eventos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+ 
+}
+
+/* CARD DE EVENTO */
+.evento-card {
+  margin-top: 4%;
+  border: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 390px;
+  border-radius: 8px;
+  background-color: #e5e7eb02;
+  margin-bottom: 20px;
+}
+
+.evento-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+
+.evento-data {
+  font-size: 1.1em;
+  color: #1F2937;
+  text-align: left;
+  margin-left: 1px;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+}
+
+.evento-cidade {
+  font-size: 1.1em;
+  color: #1F2937;
+  text-align: left;
+  margin-left: 1px;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  display: flex;
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 3px;
+  text-align: left;
+  margin-left: 4px;
+  font-weight: 400;
+  color: #1F2937;
+}
+
+.descricaos {
+  font-size: 1.1em;
+  margin: 10px 0;
+  color: #555;
+  word-wrap: break-word;
+  text-align: left;
+  margin-left: 4px;
+}
+
+.ver-mais {
+  padding: 7px;
+  margin: 20px auto 10px auto;
+  color: #F9FAFB;
+  font-weight: 500;
+  text-decoration: none;
+  height: 20px;
+  width: 150px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background: #1F2937;
+  transition: background 0.3s ease;
+}
+
+/* BANNER DE EVENTO */
+.evento-banner {
+  position: relative;
+  height: 78vh;
+  /* Ajuste a altura do banner */
+  overflow: hidden;
+  /* Garante que não apareça nada fora do banner */
+}
+
+.evento-banner-texto {
+  width: 600px;
+}
+
+.evento-banner-img {
+  width: 100%;
+  height: 100%;
+  /* Faz com que a imagem ocupe a altura inteira */
+  object-fit: cover;
+  /* A imagem vai cobrir toda a área, podendo ser cortada */
+  object-position: center;
+  /* Centraliza a imagem */
+  transition: transform 0.5s ease;
+  /* Adiciona um efeito suave ao passar o mouse */
+}
+
+/* Informações do Banner sempre visíveis */
+.evento-banner-info {
+  position: absolute;
+  top: 70%;
+  /* Ajusta a posição vertical para que fique no centro do banner */
+  left: 5%;
+  /* Encosta à esquerda */
+  transform: translate(0, -50%);
+  /* Centraliza verticalmente */
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  color: #fff;
+  padding: 25px;
+  max-width: 350px;
+  opacity: 1;
+  /* Agora está sempre visível */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Exibe as informações sem depender de hover */
+.evento-banner-info h3 {
+  font-size: 1.8rem;
+  /* Aumenta o tamanho do título */
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* Deixa o título em maiúsculas */
+  color: #1F2937;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.evento-banner-info p {
+  font-size: 1.3rem;
+  /* Aumenta a legibilidade da descrição */
+  margin-bottom: 25px;
+  margin-left: 5px;
+  color: #1F2937;
+  line-height: 1.6;
+  /* Aumenta o espaçamento entre as linhas para melhorar a leitura */
+}
+
+.evento-banner-info a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 25px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: #1F2937;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-left: 5px;
+}
+
+.evento-banner-info a:hover {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3, #d15c22);
+  transform: scale(1.1);
+  /* Efeito de aumento ao passar o mouse sobre o link */
+}
+
+/* RESPONSIVIDADE */
+/* RESPONSIVIDADE COMPLETA */
+
+/* Telas grandes: desktop */
+@media (min-width: 992px) {
+  .eventos-lista {
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 40px;
+  }
+
+  .evento-card {
+    width: 30%;
+  }
+
+  .evento-banner {
+    height: 78vh;
+  }
+
+  .evento-banner-info {
+    top: 65%;
+    max-width: 400px;
+  }
+
+  .evento-banner-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .evento-banner-info p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Telas médias: tablets */
+@media (max-width: 991px) {
+  .topo-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .barra-pesquisa {
+    width: 80%;
+    padding: 10px 20px;
+  }
+
+  .barra-pesquisa-btn {
+ 
+  right: 25px;
+  top: 50%;
+  transform: translateY(-80%);
+ 
+}
+
+
+  .eventos-lista {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+  }
+
+  
+
+  .evento-card {
+  margin-top: 4%;
+  border: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 390px;
+  border-radius: 8px;
+  background-color: #e5e7eb02;
+  margin-bottom: 30px;
+}
+
+ 
+  .evento-img {
+    height: 180px;
+  }
+
+  .evento-banner {
+    height: 60vh;
+  }
+
+  .evento-banner-info {
+    top: 70%;
+    left: 5%;
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .evento-banner-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .evento-banner-info p {
+    font-size: 1.1rem;
+  }
+    .seta-esquerda,
+.seta-direita {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #1F2937;
+  cursor: pointer;
+  z-index: 10;
+}
+}
+
+/* Telas pequenas: celulares */
+@media (max-width: 640px) {
+  .topo-header {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .botoes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botoes-container button {
+    margin-top: 8px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .evento-banner-texto {
+  width: 350px;
+}
+
+
+  .barra-pesquisa {
+    width: 80%;
+    padding-right: 0px;
+    /* Deixa espaço para a lupa */
+
+  }
+
+  .barra-pesquisa-btn {
+    position: absolute;
+    right: 60px;
+    
+      
+    background: transparent;
+    border: none;
+    font-size: 1.3em;
+    color: #888;
+    cursor: pointer;
+  }
+
+  .eventos-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .evento-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .evento-img {
+    height: 180px;
+  }
+
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .descricaos {
+    font-size: 1em;
+  }
+
+  .ver-mais {
+    width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .evento-banner {
+    height: 50vh;
+  }
+
+  .evento-banner-info {
+    top: 73%;
+    left: 5%;
+    transform: translateY(-50%);
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  .evento-banner-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .evento-banner-info p {
+    font-size: 1.5rem;
+     margin-bottom: 5px;
+  }
+
+  .evento-banner-info a {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    
+   
+  }
+
+  .seta-esquerda,
+.seta-direita {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #1F2937;
+  cursor: pointer;
+  z-index: 10;
+}
+
+}
